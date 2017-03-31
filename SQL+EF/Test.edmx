@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="testModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="projectprocess">
+          <Key>
+            <PropertyRef Name="proID" />
+          </Key>
+          <Property Name="proID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productionnum" Type="bigint" />
+          <Property Name="responsibleperson" Type="nchar" MaxLength="10" />
+          <Property Name="closingdate" Type="smalldatetime" />
+          <Property Name="design" Type="int" />
+          <Property Name="make" Type="int" />
+          <Property Name="assemble" Type="int" />
+          <Property Name="indebug" Type="int" />
+          <Property Name="incheck" Type="int" />
+          <Property Name="storage" Type="int" />
+          <Property Name="send" Type="int" />
+          <Property Name="build" Type="int" />
+          <Property Name="outdebug" Type="int" />
+          <Property Name="outcheck" Type="int" />
+          <Property Name="service" Type="int" />
+        </EntityType>
+        <EntityType Name="userinfo">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="userlevel" Type="int" />
+        </EntityType>
+        <EntityContainer Name="testModelStoreContainer">
+          <EntitySet Name="projectprocess" EntityType="Self.projectprocess" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userinfo" EntityType="Self.userinfo" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="testModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="projectprocess">
+          <Key>
+            <PropertyRef Name="proID" />
+          </Key>
+          <Property Name="proID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="productionnum" Type="Int64" />
+          <Property Name="responsibleperson" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="closingdate" Type="DateTime" Precision="0" />
+          <Property Name="design" Type="Int32" />
+          <Property Name="make" Type="Int32" />
+          <Property Name="assemble" Type="Int32" />
+          <Property Name="indebug" Type="Int32" />
+          <Property Name="incheck" Type="Int32" />
+          <Property Name="storage" Type="Int32" />
+          <Property Name="send" Type="Int32" />
+          <Property Name="build" Type="Int32" />
+          <Property Name="outdebug" Type="Int32" />
+          <Property Name="outcheck" Type="Int32" />
+          <Property Name="service" Type="Int32" />
+          </EntityType>
+        <EntityType Name="userinfo">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="userlevel" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="testEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="projectprocess" EntityType="Self.projectprocess" />
+          <EntitySet Name="userinfo" EntityType="Self.userinfo" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="testModelStoreContainer" CdmEntityContainer="testEntities">
+          <EntitySetMapping Name="projectprocess">
+            <EntityTypeMapping TypeName="testModel.projectprocess">
+              <MappingFragment StoreEntitySet="projectprocess">
+                <ScalarProperty Name="proID" ColumnName="proID" />
+                <ScalarProperty Name="productionnum" ColumnName="productionnum" />
+                <ScalarProperty Name="responsibleperson" ColumnName="responsibleperson" />
+                <ScalarProperty Name="closingdate" ColumnName="closingdate" />
+                <ScalarProperty Name="design" ColumnName="design" />
+                <ScalarProperty Name="make" ColumnName="make" />
+                <ScalarProperty Name="assemble" ColumnName="assemble" />
+                <ScalarProperty Name="indebug" ColumnName="indebug" />
+                <ScalarProperty Name="incheck" ColumnName="incheck" />
+                <ScalarProperty Name="storage" ColumnName="storage" />
+                <ScalarProperty Name="send" ColumnName="send" />
+                <ScalarProperty Name="build" ColumnName="build" />
+                <ScalarProperty Name="outdebug" ColumnName="outdebug" />
+                <ScalarProperty Name="outcheck" ColumnName="outcheck" />
+                <ScalarProperty Name="service" ColumnName="service" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userinfo">
+            <EntityTypeMapping TypeName="testModel.userinfo">
+              <MappingFragment StoreEntitySet="userinfo">
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="userlevel" ColumnName="userlevel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
